@@ -1,136 +1,153 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="">
-    <meta name="author" content="">
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description" content="" />
+    <meta name="author" content="" />
     <title>Bootstrap Photo Gallery Demo</title>
-    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/css/bootstrap.min.css" rel="stylesheet">    
+    <link
+      href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/css/bootstrap.min.css"
+      rel="stylesheet"
+    />
     <script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.3/umd/popper.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/js/bootstrap.min.js"></script>
 
-    <link href="jquery.bsPhotoGallery.css" rel="stylesheet">
-    <script src="jquery.bsPhotoGallery.js"></script>	
-	
-    
+    <link href="jquery.bsPhotoGallery.css" rel="stylesheet" />
+    <script src="jquery.bsPhotoGallery.js"></script>
+
     <script>
-      $(document).ready(function(){
-        $('ul.first').bsPhotoGallery({
-          "classes" : "col-xl-3 col-lg-2 col-md-4 col-sm-4",
-          "hasModal" : true,
-          "shortText" : false  
+      $(document).ready(function () {
+        $("ul.first").bsPhotoGallery({
+          classes: "col-xl-3 col-lg-2 col-md-4 col-sm-4",
+          hasModal: true,
+          shortText: false,
         });
       });
     </script>
 
     <script>
-        $(document).ready(function(){
-          // Gọi API và xử lý dữ liệu trả về
-          $.ajax({
-            url: 'http://upload.chuyenhaidua.id.vn/imgur',
-            dataType: 'json',
-            success: function(response) {
-              if (response.statusCode === 200) {
-                var images = response.data;
-  
-                // Tạo các phần tử <li> và thêm vào <ul>
-                var gallery = $('.row.first');
-                $.each(images, function(index, image) {
-                  var listItem = $('<li></li>');
-                  var img = $('<img>');
-                  img.attr('src', image.url);
-                  img.attr('alt', image.name);
-                  listItem.append(img);
-                  gallery.append(listItem);
-                });
-  
-                // Kích hoạt plugin bsPhotoGallery
-                gallery.bsPhotoGallery({
-                  "classes" : "col-xl-3 col-lg-2 col-md-4 col-sm-4",
-                  "hasModal" : true,
-                  "shortText" : false  
-                });
-              }
-            },
-            error: function() {
-              console.log('Error occurred while fetching images.');
+      $(document).ready(function () {
+        // Gọi API và xử lý dữ liệu trả về
+        $.ajax({
+          url: "http://upload.chuyenhaidua.id.vn/imgur",
+          dataType: "json",
+          success: function (response) {
+            if (response.statusCode === 200) {
+              var images = response.data;
+
+              // Tạo các phần tử <li> và thêm vào <ul>
+              var gallery = $(".row.first");
+              $.each(images, function (index, image) {
+                var listItem = $("<li></li>");
+                var img = $("<img>");
+                img.attr("src", image.url);
+                img.attr("alt", image.name);
+                listItem.append(img);
+                gallery.append(listItem);
+              });
+
+              // Kích hoạt plugin bsPhotoGallery
+              gallery.bsPhotoGallery({
+                classes: "col-xl-3 col-lg-2 col-md-4 col-sm-4",
+                hasModal: true,
+                shortText: false,
+              });
             }
-          });
+          },
+          error: function () {
+            console.log("Error occurred while fetching images.");
+          },
         });
-      </script>
+      });
+    </script>
   </head>
   <style>
-      /**************STYLES ONLY FOR DEMO PAGE**************/
-      @import url(https://fonts.googleapis.com/css?family=Bree+Serif);
-      body {
-        background:#ebebeb;
-      }   
+    /**************STYLES ONLY FOR DEMO PAGE**************/
+    @import url(https://fonts.googleapis.com/css?family=Bree+Serif);
+    body {
+      background: #ebebeb;
+    }
   </style>
   <body>
     <div class="container">
-        <div class="row" style="text-align:center; border-bottom:1px dashed #ccc;  padding:30px 0 20px 0; margin-bottom:40px;">
-            <div class="col-lg-12">
-            <h3 style="font-family:'Bree Serif', arial; font-weight:bold; font-size:30px;">
-                <a style="text-decoration:none; color:#666;" href="http://michaelsoriano.com/create-a-responsive-photo-gallery-with-bootstrap-framework/">Bootstrap Photo Gallery jQuery plugin <span style="color:red;">Demo</span></a>
-            </h3>
-            <p>Resize your browser and watch the gallery adapt to the view port size. Clicking on an image will activate the Modal. Click <strong><a style="color:red" href="http://michaelsoriano.com/create-a-responsive-photo-gallery-with-bootstrap-framework/">Here</a></strong> to go back to the tutorial</p>
-            </div>
+      <div
+        class="row"
+        style="
+          text-align: center;
+          border-bottom: 1px dashed #ccc;
+          padding: 30px 0 20px 0;
+          margin-bottom: 40px;
+        "
+      >
+        <div class="col-lg-12">
+          <h3
+            style="
+              font-family: 'Bree Serif', arial;
+              font-weight: bold;
+              font-size: 30px;
+            "
+          >
+            <a
+              style="text-decoration: none; color: #666"
+              href="http://michaelsoriano.com/create-a-responsive-photo-gallery-with-bootstrap-framework/"
+              >Bootstrap Photo Gallery jQuery plugin
+              <span style="color: red">Demo</span></a
+            >
+          </h3>
+          <p>
+            Resize your browser and watch the gallery adapt to the view port
+            size. Clicking on an image will activate the Modal. Click
+            <strong
+              ><a
+                style="color: red"
+                href="http://michaelsoriano.com/create-a-responsive-photo-gallery-with-bootstrap-framework/"
+                >Here</a
+              ></strong
+            >
+            to go back to the tutorial
+          </p>
         </div>
-
-
-        <ul class="row first" id="gallery"></ul>
-        <!-- <ul class="row first">
-            <li>
-                <img alt="Rocking the night away"  src="https://i.imgur.com/kihDGyP.jpg">
-                <p>Consectetur adipiscing elit</p>
-            </li>
-            <li>
-                <img alt="Yellow sign"  src="http://demo.michaelsoriano.com/images/photodune-287182-blah-blah-blah-yellow-road-sign-xs.jpg">
-                <p>Lorem ipsum dolor sit amet, labore et dolore magna aliqua. Ut enim ad minim veniam</p>
-            </li>
-            <li>
-                <img alt="Colors"  src="http://demo.michaelsoriano.com/images/photodune-460760-colors-xs.jpg">
-                 <p>Contrary to popular belief, Lorem Ipsum is not simply random text. It has roots in a piece of classical Latin literature from 45 BC, making it over 2000 years old.</p>
-            </li>
-            <li>
-                <img alt="Retro party"  src="http://demo.michaelsoriano.com/images/photodune-461673-retro-party-xs.jpg">
-                <p>Lorem, do eiusmod tempor incid Ut enim ad minim veniam</p>
-            </li>
-            <li>
-                <img alt="Technology soup"  src="http://demo.michaelsoriano.com/images/photodune-514834-touchscreen-technology-xs.jpg">
-                <p>Do eiusmod tempor</p>
-            </li>
-            <li>
-                <img alt="Legal docs"  src="http://demo.michaelsoriano.com/images/photodune-916206-legal-xs.jpg" data-bsp-large-src="http://demo.michaelsoriano.com/images/photodune-916206-legal-large.jpg">
-                <p>Eiusmod tempor enim ad minim veniam</p>
-            </li>
-            <li>
-                <img alt="Nature shot"  src="http://demo.michaelsoriano.com/images/photodune-1062948-nature-xs.jpg">
-                <p>Adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam</p>
-            </li>
-            <li>
-                <img alt="Kid with camera" src="http://demo.michaelsoriano.com/images/photodune-1471528-insant-camera-kid-xs.jpg" data-bsp-large-src="http://demo.michaelsoriano.com/images/photodune-1471528-insant-camera-kid-large.jpg">
-                <p>Lorem ipsum dolor sit amet, labore et dolore magna aliqua. Ut enim ad minim veniam</p>
-            </li>
-            <li>
-                <img alt="Relax and Chill" src="http://demo.michaelsoriano.com/images/photodune-2255072-relaxed-man-xs.jpg">
-                <p>Eiusmod tempor enim ad minim veniam</p>
-            </li>
-            <li>
-                <img alt="Cool colors" src="http://demo.michaelsoriano.com/images/photodune-2360379-colors-xs.jpg">
-                <p>Consectetur adipiscing elit</p>
-            </li>
-            <li>
-                <img alt="Jump over"  src="http://demo.michaelsoriano.com/images/photodune-2360571-jump-xs.jpg">
-                <p>Lorem ipsum dolor sit amet, labore et dolore magna aliqua. Ut enim ad minim veniam</p>
-            </li>
-            <li>
-                <img alt="Culture business" src="http://demo.michaelsoriano.com/images/photodune-2361384-culture-for-business-xs.jpg">
-                <p>Adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam</p>
-            </li> -->
-
+      </div>
+      <ul class="row first">
+        <!-- Đặt một lớp cho mỗi thẻ li để dễ dàng truy cập bằng JavaScript -->
+        <li class="gallery-item">
+          <img alt="" src="" />
+          <p></p>
+        </li>
+        <li class="gallery-item">
+          <img alt="" src="" />
+          <p></p>
+        </li>
+        <!-- Thêm các thẻ li khác tương tự -->
+      </ul>
+    </div>
   </body>
+
+  <script>
+    $(document).ready(function () {
+      fetch("http://upload.chuyenhaidua.id.vn/imgur")
+        .then(response => response.json())
+        .then(data => {
+          if (data.statusCode === 200) {
+            const images = data.data;
+            const galleryItems = $(".gallery-item"); // Chọn tất cả các thẻ li
+
+            // Duyệt qua từng hình ảnh và cập nhật thẻ img và p tương ứng
+            images.forEach((image, index) => {
+              const galleryItem = galleryItems.eq(index);
+              const imgElement = galleryItem.find("img");
+              const pElement = galleryItem.find("p");
+
+              imgElement.attr("src", image.url);
+              imgElement.attr("alt", image.name);
+              pElement.text(image.name);
+            });
+          }
+        })
+        .catch(error => console.error(error));
+    });
+  </script>
 </html>
