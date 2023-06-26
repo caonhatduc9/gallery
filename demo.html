@@ -30,7 +30,7 @@
         $(document).ready(function(){
           // Gọi API và xử lý dữ liệu trả về
           $.ajax({
-            url: 'localhost:7100/imgur',
+            url: 'http://upload.chuyenhaidua.id.vn/imgur',
             dataType: 'json',
             success: function(response) {
               if (response.statusCode === 200) {
